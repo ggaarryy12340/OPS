@@ -99,3 +99,5 @@ D:\訂單處理系統OPS\OPS\OPS\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAc
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.csprojResolveAssemblyReference.cache
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.dll
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.pdb
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.InitialCreate.resources
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.csproj.GenerateResource.Cache
