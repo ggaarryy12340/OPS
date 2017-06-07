@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    <title>OPS訂單管理系統</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/Sidebar.css" rel="stylesheet">
@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
+        @Html.ActionLink("OPS訂單管理系統", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,16 +20,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button></li>
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
+                    <li class="active"><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" @*aria-hidden="true"*@></span></button></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
@@ -37,34 +35,40 @@
         <div id="sidebar-wrapper"  style="position:fixed">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
 
-                <li class="active">
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
+                <li @*class="active"*@>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>管理</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="@Url.Action("Contact", "Home")"><i class="fa fa-user fa-fw"></i> 使用者管理</a></li>
-                        <li><a href="#">link2</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-address-book-o fa-stack-1x"></i></span>使用者管理</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-key fa-stack-1x "></i></span>權限管理</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-tasks fa-stack-1x "></i></span>作業管理</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Shortcut</a>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-suitcase fa-stack-1x "></i></span> 訂單</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link2</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x "></i></span>訂單總表</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-file-excel-o fa-stack-1x "></i></span>訂單匯入</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-random fa-stack-1x "></i></span>訂單製揀貨單</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-barcode fa-stack-1x "></i></span>訂單待出貨</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview</a>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-shopping-cart fa-stack-1x "></i></span> 揀貨單</a>
+                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x "></i></span>揀貨單總表</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-check-square-o fa-stack-1x "></i></span>待取單</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-shopping-basket fa-stack-1x "></i></span>待揀單</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-sitemap fa-stack-1x "></i></span>待分單</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services</a>
-                </li>
-                <li>
-                <a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span> 使用者管理</a>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bar-chart fa-stack-1x"></i></span> 報表</a>
+                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>揀貨單總表</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>待取單</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>待揀單</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>待分單</a></li>
+                    </ul>
                 </li>
             </ul>
         </div><!-- /#sidebar-wrapper -->
