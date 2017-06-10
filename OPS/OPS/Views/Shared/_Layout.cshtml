@@ -20,11 +20,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" @*aria-hidden="true"*@></span></button></li>
+                    <li class="active"><button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-transfer" @*aria-hidden="true"*@></span></button></li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
@@ -32,9 +32,11 @@
     </div>
     <div id="wrapper">
         <!-- Sidebar -->
-        <div id="sidebar-wrapper"  style="position:fixed">
+        <div id="sidebar-wrapper" style="position:fixed">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-
+                <li>
+                    <p></p>
+                </li>
                 <li @*class="active"*@>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>管理</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -46,25 +48,25 @@
                 <li>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-suitcase fa-stack-1x "></i></span> 訂單</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x "></i></span>訂單總表</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-file-excel-o fa-stack-1x "></i></span>訂單匯入</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-random fa-stack-1x "></i></span>訂單製揀貨單</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-barcode fa-stack-1x "></i></span>訂單待出貨</a></li>
+                        <li><a href="@Url.Action("Index", "Orders")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x "></i></span>訂單總表</a></li>
+                        <li><a href="@Url.Action("Index", "OrdersImport")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-file-excel-o fa-stack-1x "></i></span>訂單匯入</a></li>
+                        <li><a href="@Url.Action("Index", "OrdersToPickings")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-random fa-stack-1x "></i></span>訂單製揀貨單</a></li>
+                        <li><a href="@Url.Action("Index", "OrdersDelivery")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-barcode fa-stack-1x "></i></span>訂單待出貨</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-shopping-cart fa-stack-1x "></i></span> 揀貨單</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x "></i></span>揀貨單總表</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-check-square-o fa-stack-1x "></i></span>待取單</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-shopping-basket fa-stack-1x "></i></span>待揀單</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-sitemap fa-stack-1x "></i></span>待分單</a></li>
+                        <li><a href="@Url.Action("Index", "Pickings")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-list-alt fa-stack-1x "></i></span>揀貨單總表</a></li>
+                        <li><a href="@Url.Action("Index", "PickingsAsign")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-check-square-o fa-stack-1x "></i></span>待取單</a></li>
+                        <li><a href="@Url.Action("Index", "PickingsPick")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-shopping-basket fa-stack-1x "></i></span>待揀單</a></li>
+                        <li><a href="@Url.Action("Index", "PickingsPack")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-sitemap fa-stack-1x "></i></span>待分單</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bar-chart fa-stack-1x"></i></span> 報表</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>揀貨單總表</a></li>
+                        <li><a href="@Url.Action("Index", "Reports")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>揀貨單總表</a></li>
                         <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>待取單</a></li>
                         <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>待揀單</a></li>
                         <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>待分單</a></li>
@@ -75,7 +77,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid xyz">
-                <div class="container body-content">
+                <div class="container body-content" style="margin-top:50px;">
                     @RenderBody()
                 </div>
 
@@ -96,6 +98,7 @@
 </html>
 
 <script>
+    //side bar
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");

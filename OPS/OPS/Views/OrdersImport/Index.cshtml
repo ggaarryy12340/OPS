@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "訂單匯入";
+}
+
+<h2>訂單匯入</h2>
+<br>
+
+<fieldset>
+    <legend>Shopee</legend>
+
+    @using (Html.BeginForm("ImportShopeeTW", "OrdersImportController", FormMethod.Post, new { id = "UploadForm", enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            <label for="number" class="col-sm-4 control-label">台灣蝦皮</label>
+            <div class="col-sm-8">
+                <input type="file" name="files" id="file711" />
+                <input type="hidden" name="type" value="file711" />
+                <button type="submit" class="btn btn-default">開始上傳</button>
+                <p class="help-block">註：EXCEL上傳欄位為：項次+燈號	配送狀態 (說明參考Desc)	配送訊息	取貨門市	訂單編號	驗退原因	收件人姓名	訂單類別	客戶配送需求	轉單日	預計出貨日	商品原廠編號	品號	品名	單名編號	單品詳細	數量	進價(含稅)	贈品	訂購人姓名	發票號碼	發票日期	個人識別碼	群組變價商品</p>
+                <hr>
+            </div>
+        </div>
+    }
+</fieldset>
+
+
+<fieldset>
+    <legend>Yahoo</legend>
+
+    @using (Html.BeginForm("ImportYahooSuperMall", "OrdersImportController", FormMethod.Post, new { id = "UploadForm", enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            <label for="number" class="col-sm-4 control-label">Yahoo超級商城</label>
+            <div class="col-sm-8">
+                <input type="file" name="files" id="file711" />
+                <input type="hidden" name="type" value="file711" />
+                <button type="submit" class="btn btn-default">開始上傳</button>
+                <p class="help-block">註：EXCEL上傳欄位為：項次	訂單編號	配送狀態	配送訊息	客戶配送需求		最晚出貨日	收件人姓名	取貨門市	商店品號	商品編號	商品名稱	單品規格	數量	成交價	商品屬性	訂購人姓名	電話	行動電話</p>
+                <hr>
+            </div>
+        </div>
+    }
+    @using (Html.BeginForm("ImportYahooBid", "OrdersImportController", FormMethod.Post, new { id = "UploadForm", enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            <label for="number" class="col-sm-4 control-label">Yahoo拍賣</label>
+            <div class="col-sm-8">
+                <input type="file" name="files" id="fileHomeDelivery" />
+                <input type="hidden" name="type" value="fileHomeDelivery" />
+                <button type="submit" class="btn btn-default">開始上傳</button>
+                <p class="help-block">註：EXCEL上傳欄位為：項次	訂單編號	配送狀態	配送訊息	物流公司	配送單號	客戶配送需求		最晚出貨日	收件人姓名	電話	行動電話	地址	商店品號	商品編號	商品名稱	單品規格	數量	成交價	商品屬性	訂購人姓名	電話	行動電話</p>
+                <hr>
+            </div>
+        </div>
+    }
+</fieldset>
+
+<div>
+    @Html.ActionLink("返回", "Index", "Orders", null, new { @class = "btn btn-default" })
+</div>

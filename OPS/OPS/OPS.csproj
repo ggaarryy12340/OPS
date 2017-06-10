@@ -200,6 +200,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrdersDeliveryController.cs" />
+    <Compile Include="Controllers\OrdersImportController.cs" />
+    <Compile Include="Controllers\OrdersToPickingsController.cs" />
+    <Compile Include="Controllers\PickingsAsignController.cs" />
+    <Compile Include="Controllers\PickingsController.cs" />
+    <Compile Include="Controllers\PickingsPackController.cs" />
+    <Compile Include="Controllers\PickingsPickController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,6 +227,24 @@
     <Compile Include="Models\OPSContext\Picking.cs" />
     <Compile Include="Models\OPSContext\PickingMakeLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repostiories\OrdersDeliveryRepository.cs" />
+    <Compile Include="Repostiories\OrdersImportRepository.cs" />
+    <Compile Include="Repostiories\OrdersRepository.cs" />
+    <Compile Include="Repostiories\OrdersToPickingsRepository.cs" />
+    <Compile Include="Repostiories\PickingAsignRepository.cs" />
+    <Compile Include="Repostiories\PickingPickRepository.cs" />
+    <Compile Include="Repostiories\PickingsPackRepository.cs" />
+    <Compile Include="Repostiories\PickingsRepository.cs" />
+    <Compile Include="Repostiories\ReportsRepository.cs" />
+    <Compile Include="Services\OrdersDeliveryService.cs" />
+    <Compile Include="Services\OrdersImportService.cs" />
+    <Compile Include="Services\OrdersService.cs" />
+    <Compile Include="Services\OrdersToPickingsService.cs" />
+    <Compile Include="Services\PickingPackService.cs" />
+    <Compile Include="Services\PickingsAsignService.cs" />
+    <Compile Include="Services\PickingsPickService.cs" />
+    <Compile Include="Services\PickingsService.cs" />
+    <Compile Include="Services\ReportsService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,9 +316,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\OrdersImport\Index.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\OrdersDelivery\" />
+    <Folder Include="Views\OrdersToPickings\" />
+    <Folder Include="Views\PickingsAsign\" />
+    <Folder Include="Views\PickingsGet\" />
+    <Folder Include="Views\PickingsPack\" />
+    <Folder Include="Views\PickingsPick\" />
+    <Folder Include="Views\Pickings\" />
+    <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
