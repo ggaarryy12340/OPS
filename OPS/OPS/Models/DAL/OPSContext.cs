@@ -26,6 +26,8 @@
         public virtual DbSet<OrderStatusLog> OrderStatusLog { get; set; }
         public virtual DbSet<PickingMakeLog> PickingMakeLog { get; set; }
         public virtual DbSet<Picking> Picking { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<PDCategory> PDCategory { get; set; }
     }
 
     //public class MyEntity

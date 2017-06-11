@@ -101,3 +101,10 @@ D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.dll
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.pdb
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.InitialCreate.resources
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.csproj.GenerateResource.Cache
+D:\訂單處理系統OPS\OPS\OPS\bin\ICSharpCode.SharpZipLib.dll
+D:\訂單處理系統OPS\OPS\OPS\bin\NPOI.dll
+D:\訂單處理系統OPS\OPS\OPS\bin\NPOI.OOXML.dll
+D:\訂單處理系統OPS\OPS\OPS\bin\NPOI.OpenXml4Net.dll
+D:\訂單處理系統OPS\OPS\OPS\bin\NPOI.OpenXmlFormats.dll
+D:\訂單處理系統OPS\OPS\OPS\bin\NPOI.xml
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.AddTable.resources

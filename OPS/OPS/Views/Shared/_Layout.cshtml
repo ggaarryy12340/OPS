@@ -32,11 +32,8 @@
     </div>
     <div id="wrapper">
         <!-- Sidebar -->
-        <div id="sidebar-wrapper" style="position:fixed">
+        <div id="sidebar-wrapper" style="position:fixed; margin-top:55px;">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                <li>
-                    <p></p>
-                </li>
                 <li @*class="active"*@>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>管理</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
@@ -78,6 +75,18 @@
         <div id="page-content-wrapper">
             <div class="container-fluid xyz">
                 <div class="container body-content" style="margin-top:50px;">
+                    @if (TempData["message"] != null)
+                    {
+                        <br>
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>
+                                @Html.Raw(@TempData["message"])
+                            </strong>
+                        </div>
+                    }
+                </div>
+
                     @RenderBody()
                 </div>
 
