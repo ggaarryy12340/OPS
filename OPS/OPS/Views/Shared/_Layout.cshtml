@@ -35,11 +35,18 @@
         <div id="sidebar-wrapper" style="position:fixed; margin-top:55px;">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
                 <li @*class="active"*@>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>管理</a>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>系統管理</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                         <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-address-book-o fa-stack-1x"></i></span>使用者管理</a></li>
                         <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-key fa-stack-1x "></i></span>權限管理</a></li>
                         <li><a href="@Url.Action("Contact", "Home")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-tasks fa-stack-1x "></i></span>作業管理</a></li>
+                    </ul>
+                </li>
+                <li @*class="active"*@>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cogs fa-stack-1x "></i></span>產品</a>
+                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="@Url.Action("Index", "ProductCategory")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-key fa-stack-1x "></i></span>產別類別設定</a></li>
+                        <li><a href="@Url.Action("Index", "Product")"><span class="fa-stack fa-lg pull-left"><i class="fa fa-tasks fa-stack-1x "></i></span>產品管理</a></li>
                     </ul>
                 </li>
                 <li>

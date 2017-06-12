@@ -15,10 +15,6 @@ namespace OPS.Models.OPSContext
         [DisplayName("訂單明細ID")]
         public Guid OrderDetailId { get; set; }
 
-        [StringLength(20)]
-        [DisplayName("商品編號")]
-        public string ProductId { get; set; }
-
         [StringLength(100)]
         [DisplayName("商品名稱")]
         public string ProductName { get; set; }
@@ -37,9 +33,16 @@ namespace OPS.Models.OPSContext
         public decimal TotalPrice { get; set; }
 
         [ForeignKey("Order")]
+        [DisplayName("訂單編號")]
         public Guid OrderId { get; set; } // 外來鍵
 
+        [ForeignKey("Product")]
+        [DisplayName("商品編號")]// 外來鍵
+        public string ProductId { get; set; }
+
         public virtual Order Order { get; set; }
+
+        public virtual Product Product { get; set; }
 
         public OrderDetail()
         {

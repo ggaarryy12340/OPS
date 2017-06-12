@@ -1,0 +1,51 @@
+﻿@model OPS.Models.ViewModel.ProductCategoryView
+
+@{
+    ViewBag.Title = "商品類別設定";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">商品類別設定</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" style="background-color:#f4f4f4;height:50px;padding-top:8px">
+        <div>
+            @Html.ActionLink("新增商品類別項目", "Create", "ProductCategory", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+</div>
+<br />
+
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>商品類別ID</th>
+                        <th>商品類別名稱</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PDCategories)
+                    {
+                        <tr>
+                            <td>@Html.Raw(item.PDCategoryId)</td>
+                            <td>@Html.Raw(item.PDCategoryName)</td>
+                            <td>
+                                @Html.ActionLink("修改", "Edit", "PDTypeMS", new { id = item.PDCategoryId }, new { @class = "btn btn-warning" }) &nbsp;
+                                @Html.ActionLink("刪除", "Delete", "PDTypeMS", new { id = item.PDCategoryId }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+} 
+

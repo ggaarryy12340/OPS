@@ -2,6 +2,7 @@
 {
     using Models.OPSContext;
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
     using System.Linq;
 
@@ -18,6 +19,12 @@
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //設定PDCategory 的 PDCategoryId不要自動產生
+            modelBuilder.Entity<PDCategory>().Property(x => x.PDCategoryId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+        }
+
         // 針對您要包含在模型中的每種實體類型新增 DbSet。如需有關設定和使用
         // Code First 模型的詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=390109。
 
@@ -29,10 +36,4 @@
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<PDCategory> PDCategory { get; set; }
     }
-
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
 }
