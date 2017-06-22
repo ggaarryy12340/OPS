@@ -26,6 +26,16 @@ namespace OPS
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            #region 新增
+
+            bundles.Add(new StyleBundle("~/Content/Sidebar").Include(
+                      "~/Content/Sidebar.css"));
+
+            bundles.Add(new StyleBundle("~/Content/font-awesome.min.css").Include(
+                      "~/Content/font-awesome.min.css"));
+
+            #endregion
         }
     }
 }

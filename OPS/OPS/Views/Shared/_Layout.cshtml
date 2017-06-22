@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPS訂單管理系統</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Sidebar")
+    @Styles.Render("~/Content/font-awesome.min.css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/Sidebar.css" rel="stylesheet">
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -94,17 +94,16 @@
                     }
                 </div>
 
-                    @RenderBody()
-                </div>
-
-                <hr />
-                <footer style="text-align:center;">
-                    <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-                </footer>
+                @RenderBody()
             </div>
+
+            <hr />
+            <footer style="text-align:center;">
+                <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+            </footer>
         </div>
-        <!-- /#page-content-wrapper -->
     </div>
+    <!-- /#page-content-wrapper -->
 
 
     @Scripts.Render("~/bundles/jquery")
