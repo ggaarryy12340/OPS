@@ -1,0 +1,37 @@
+﻿@model OPS.Models.OPSContext.PDCategory
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">編輯商品類別</h1>
+    </div>
+</div>
+@using (Html.BeginForm("Edit", "ProductCategory", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>表單類別代碼</label>
+                @Html.TextBoxFor(m => m.PDCategoryId, new { @class = "form-control", @disabled = true })
+                @Html.HiddenFor(x => x.PDCategoryId)
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>表單類別名稱</label>
+                @Html.TextBoxFor(m => m.PDCategoryName, new { @class = "form-control", @maxlength = "30" })
+                <p class="help-block">*必填</p>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            <input type="submit" class="btn btn-success" value="送出" />
+        </div>
+    </div>
+}

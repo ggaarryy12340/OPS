@@ -25,5 +25,20 @@ namespace OPS.Services
         {
             return Repository.CreatePDCategory(model);
         }
+
+        public PDCategory GetSingle(int id)
+        {
+            return Repository.GetSingle(id);
+        }
+
+        public bool Edit(PDCategory model)
+        {
+            return Repository.Edit(model);
+        }
+
+        public bool Delete(int id)
+        {
+            return Repository.Delete(id);
+        }
     }
 }

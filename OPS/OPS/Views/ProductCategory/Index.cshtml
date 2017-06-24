@@ -38,8 +38,8 @@
                             <td>@Html.Raw(item.PDCategoryId)</td>
                             <td>@Html.Raw(item.PDCategoryName)</td>
                             <td>
-                                @Html.ActionLink("修改", "Edit", "PDTypeMS", new { id = item.PDCategoryId }, new { @class = "btn btn-warning" }) &nbsp;
-                                @Html.ActionLink("刪除", "Delete", "PDTypeMS", new { id = item.PDCategoryId }, new { @class = "btn btn-danger" })
+                                @Html.ActionLink("修改", "Edit", "ProductCategory", new { id = item.PDCategoryId }, new { @class = "btn btn-warning" }) &nbsp;
+                                @Html.ActionLink("刪除", "Delete", "ProductCategory", new { id = item.PDCategoryId }, new { @class = "btn btn-danger" })
                             </td>
                         </tr>
                     }

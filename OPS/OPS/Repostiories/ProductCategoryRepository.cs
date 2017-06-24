@@ -12,32 +12,49 @@ namespace OPS.Repostiories
 
     public class ProductCategoryRepository
     {
-        private readonly OPSContext _db = null;
-
-        public OPSContext db
+        public PDCategory GetSingle(int id)
         {
-            get { return _db ?? new OPSContext(); }
+            using (OPSContext db = new OPSContext())
+            {
+                return db.PDCategory.Find(id);
+            }
         }
 
         public List<PDCategory> GetPDCategories()
         {
-                return db.PDCategory.ToList();             
+            using (OPSContext db = new OPSContext())
+            {
+                return db.PDCategory.OrderBy(x => x.PDCategoryId).ToList();  
+            }                          
         }
 
         public bool CreatePDCategory(PDCategory model)
         {
-            bool rs = false;
-            try
+            using (OPSContext db = new OPSContext())
             {
                 db.PDCategory.Add(model);
-                rs = db.SaveChanges() > 0;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+                return db.SaveChanges() > 0;
+            }                       
+        }
 
-            return rs;                            
+        public bool Edit(PDCategory model)
+        {
+            using (OPSContext db = new OPSContext())
+            {
+                var PDCategoryFromDb = db.PDCategory.Find(model.PDCategoryId);
+                db.Entry(PDCategoryFromDb).CurrentValues.SetValues(model);
+                return db.SaveChanges() > 0;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            using (OPSContext db = new OPSContext())
+            {
+                var PDCategory = db.PDCategory.Find(id);
+                db.PDCategory.Remove(PDCategory);
+                return db.SaveChanges() > 0;
+            }
         }
 
     }
