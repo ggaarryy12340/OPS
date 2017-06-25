@@ -1,0 +1,108 @@
+﻿@model OPS.Models.ViewModel.ProductIndextView
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">產品管理</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        @using (Html.BeginForm("Query", "NP", FormMethod.Post))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">商品查詢</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>商品ID</label>
+                                @Html.TextBoxFor(m => m.ProductSearchParameter.productId, new { @class = "form-control" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>商品名稱</label>
+                                @Html.TextBoxFor(m => m.ProductSearchParameter.ProductName, new { @class = "form-control" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <div style="margin-top:25px">
+                                <input type="submit" value="查詢" class="btn btn-info" />
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <div style="margin-top:25px">
+                                <input type="button" id="clear" value="清除" class="btn btn-danger" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">特殊查詢</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label>商品類別</label>
+                            @*@Html.BrandTypeHelperFor(m => m.BrandType, new { @class = "form-control" })*@
+                            @Html.TextBox("test", "", new { @class = "form-control" })
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div style="margin-top:25px">
+                            <input type="button" value="查詢" class="btn btn-info" onclick="doSearch()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:20px;">
+        <div class="col-lg-12">
+
+         
+                @Html.ActionLink("＋新增新品", "CreateProduct", "Product", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px" })
+                @Html.ActionLink("＋匯入新增產品", "ImportProduct", "Product", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px" })
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ImageURL)</th>
+                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ProductId)</th>
+                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().PDCategory.PDCategoryName)</th>
+                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ProductName)</th>
+                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().RegularPrice)</th>
+                <th style="width:5%"></th>
+                <th style="width:5%"></th>
+                <th style="width:5%"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+                <td>222</td>
+                <td>@Html.ActionLink("明細", "Edit", "NP", new { @*id = item.NPMasterID*@ }, new { @class = "btn btn-info" })</td>
+                <td>@Html.ActionLink("修改", "Edit", "NP", new { @*id = item.NPMasterID*@ }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("刪除", "Edit", "NP", new { @*id = item.NPMasterID*@ }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
