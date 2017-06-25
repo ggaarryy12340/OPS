@@ -9,35 +9,27 @@
         <h1 class="page-header">新增商品</h1>
     </div>
 </div>
-@using (Html.BeginForm("Create", "ProductCategory", FormMethod.Post))
+@using (Html.BeginForm("CreateProduct", "Product", FormMethod.Post))
 {
     <div class="form-group">
         <label>@Html.DisplayNameFor(x => x.ProductId)</label>
-        @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ProductId,"" , new { @class = "text-danger"} )
     </div>
     <div class="form-group">
         <label>@Html.DisplayNameFor(x => x.ProductName)</label>
-        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control", @maxlength = "30" })
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control"}) @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         <label>@Html.DisplayNameFor(x => x.PDCategoryId)</label>
-        @Html.TextBoxFor(m => m.PDCategoryId, new { @class = "form-control" })
+        @Html.DropDownList("PDCategoryId", (SelectList)ViewBag.CategoryDropdownList, new { @class = "form-control"}) @Html.ValidationMessageFor(model => model.PDCategoryId, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         <label>@Html.DisplayNameFor(x => x.ImageURL)</label>
-        @Html.TextBoxFor(m => m.ImageURL, new { @class = "form-control", @maxlength = "30" })
-        <p class="help-block">*必填</p>
+        @Html.TextBoxFor(m => m.ImageURL, new { @class = "form-control"}) @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
     </div>
     <div class="form-group">
         <label>@Html.DisplayNameFor(x => x.RegularPrice)</label>
-        @Html.TextBoxFor(m => m.RegularPrice, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.RegularPrice, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.RegularPrice, "", new { @class = "text-danger" })
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
-    <hr />
-    <div class="row">
-        <div class="col-md-2">
-            <input type="submit" class="btn btn-info" value="新增" />
-        </div>
-    </div>
-
 }

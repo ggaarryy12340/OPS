@@ -12,6 +12,7 @@ namespace OPS.Models.OPSContext
     {
         [Key]
         [Required]
+        [StringLength(128)]
         [DisplayName("商品ID")]
         public string ProductId { get; set; }
 
@@ -27,7 +28,11 @@ namespace OPS.Models.OPSContext
         [DisplayName("圖片URL")]
         public string ImageURL { get; set; }
 
+        [DisplayName("創建時間")]
+        public DateTime CreateTime { get; set; }
+
         [ForeignKey("PDCategory")]
+        [Required]
         [DisplayName("商品類別ID")]// 外來鍵
         public int PDCategoryId { get; set; }
 

@@ -1,4 +1,8 @@
 ﻿@model OPS.Models.ViewModel.ProductIndextView
+@using PagedList;
+@using PagedList.Mvc;
+@Styles.Render("~/Content/PagedList.css")
+
 @{
     ViewBag.Title = "Index";
 }
@@ -72,9 +76,9 @@
     <div class="row" style="margin-bottom:20px;">
         <div class="col-lg-12">
 
-         
-                @Html.ActionLink("＋新增新品", "CreateProduct", "Product", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px" })
-                @Html.ActionLink("＋匯入新增產品", "ImportProduct", "Product", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px" })
+
+            @Html.ActionLink("＋新增新品", "CreateProduct", "Product", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px" })
+            @Html.ActionLink("＋匯入新增產品", "ImportProduct", "Product", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px" })
         </div>
     </div>
 
@@ -84,8 +88,9 @@
                 <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ImageURL)</th>
                 <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ProductId)</th>
                 <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().PDCategory.PDCategoryName)</th>
-                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ProductName)</th>
+                <th style="width:40%">@Html.DisplayNameFor(x => x.Products.FirstOrDefault().ProductName)</th>
                 <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().RegularPrice)</th>
+                <th>@Html.DisplayNameFor(x => x.Products.FirstOrDefault().CreateTime)</th>
                 <th style="width:5%"></th>
                 <th style="width:5%"></th>
                 <th style="width:5%"></th>
@@ -93,16 +98,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>John</td>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>222</td>
-                <td>@Html.ActionLink("明細", "Edit", "NP", new { @*id = item.NPMasterID*@ }, new { @class = "btn btn-info" })</td>
-                <td>@Html.ActionLink("修改", "Edit", "NP", new { @*id = item.NPMasterID*@ }, new { @class = "btn btn-warning" })</td>
-                <td>@Html.ActionLink("刪除", "Edit", "NP", new { @*id = item.NPMasterID*@ }, new { @class = "btn btn-danger" })</td>
-            </tr>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td><img src=@item.ImageURL width="50"></td>
+                    <td>@item.ProductId</td>
+                    <td>@item.PDCategory.PDCategoryName</td>
+                    <td>@item.ProductName</td>
+                    <td>$ @item.RegularPrice</td>
+                    <td>$ @item.CreateTime</td>
+                    <td>@Html.ActionLink("明細", "ProductDetail", "Product", new { id = item.ProductId }, new { @class = "btn btn-info" })</td>
+                    <td>@Html.ActionLink("修改", "ProductEdit", "Product", new { id = item.ProductId }, new { @class = "btn btn-warning" })</td>
+                    <td>@Html.ActionLink("刪除", "ProductDelete", "Product", new { id = item.ProductId }, new { @class = "btn btn-danger" })</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
+
+@Html.PagedListPager(Model.Products, page => Url.Action("Index", new { page }))

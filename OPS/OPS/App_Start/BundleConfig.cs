@@ -35,6 +35,9 @@ namespace OPS
             bundles.Add(new StyleBundle("~/Content/font-awesome.min.css").Include(
                       "~/Content/font-awesome.min.css"));
 
+            bundles.Add(new StyleBundle("~/Content/PagedList.css").Include(
+                      "~/Content/PagedList.css"));
+
             #endregion
         }
     }

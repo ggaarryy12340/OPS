@@ -1,4 +1,5 @@
 ﻿using OPS.Models.OPSContext;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace OPS.Models.ViewModel
 {
     public class ProductIndextView
     {
-        public List<Product> Products { get; set; }
+        public IPagedList<Product> Products { get; set; }
 
         public ProductSearchParameter ProductSearchParameter { get; set; }
     }

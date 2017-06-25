@@ -232,7 +232,6 @@
     <Compile Include="Controllers\OrdersDeliveryController.cs" />
     <Compile Include="Controllers\OrdersImportController.cs" />
     <Compile Include="Controllers\OrdersToPickingsController.cs" />
-    <Compile Include="Controllers\PDCategoryService.cs" />
     <Compile Include="Controllers\PickingsAsignController.cs" />
     <Compile Include="Controllers\PickingsController.cs" />
     <Compile Include="Controllers\PickingsPackController.cs" />
@@ -246,6 +245,10 @@
     <Compile Include="Migrations\201706121419368_InitialCreate.cs" />
     <Compile Include="Migrations\201706121419368_InitialCreate.Designer.cs">
       <DependentUpon>201706121419368_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706250736483_version1.cs" />
+    <Compile Include="Migrations\201706250736483_version1.Designer.cs">
+      <DependentUpon>201706250736483_version1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -367,6 +370,8 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\CreateProduct.cshtml" />
     <Content Include="Views\Product\ImportProduct.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Product\ProductEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -390,6 +395,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706121419368_InitialCreate.resx">
       <DependentUpon>201706121419368_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706250736483_version1.resx">
+      <DependentUpon>201706250736483_version1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

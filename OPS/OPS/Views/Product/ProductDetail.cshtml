@@ -1,0 +1,66 @@
+﻿@model OPS.Models.OPSContext.Product
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">產品明細</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src=@Model.ImageURL width="450">
+    </div>
+
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(m => m.ProductId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.ProductId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.ProductName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.ProductName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.ImageURL)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.ImageURL)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.PDCategoryId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.PDCategoryId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RegularPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.RegularPrice)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.CreateTime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.CreateTime)
+            </dd>
+        </dl>
+    </div>
+
+</div>
+<div class="col-md-1 col-sm-offset-10">
+    @Html.ActionLink("返回", "Index", "Product", "", new { @class = "btn btn-info" })
+</div>
+
