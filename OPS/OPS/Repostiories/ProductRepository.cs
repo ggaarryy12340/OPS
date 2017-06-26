@@ -1,4 +1,5 @@
-﻿using OPS.Models.DAL;
+﻿using OPS.Models;
+using OPS.Models.DAL;
 using OPS.Models.OPSContext;
 using PagedList;
 using System;
@@ -20,9 +21,23 @@ namespace OPS.Repostiories
             }
         }
 
-        public IPagedList<Product> GetAllProducts(int Page, int PageSize)
+        public IPagedList<Product> GetProductList(ProductSearchParameter searchpara, int Page, int PageSize)
         {
-            return db.Product.Include("PDCategory").OrderByDescending(x => x.CreateTime).ToPagedList(Page, PageSize);
+            var PDList = db.Product.Include("PDCategory").AsQueryable();
+
+            if (searchpara != null)
+            {
+                if (!string.IsNullOrEmpty(searchpara.productId))
+                {
+                    PDList = PDList.Where(x => x.ProductId == searchpara.productId);
+                }
+                if (!string.IsNullOrEmpty(searchpara.ProductName))
+                {
+                    PDList = PDList.Where(x => x.ProductName.Contains(searchpara.ProductName));
+                }
+            }
+
+            return PDList.OrderByDescending(x => x.CreateTime).ToPagedList(Page, PageSize);
         }
 
         public List<PDCategory> GetCategoryDropdownList()

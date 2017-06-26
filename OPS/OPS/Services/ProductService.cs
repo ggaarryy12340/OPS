@@ -1,4 +1,5 @@
-﻿using OPS.Models.OPSContext;
+﻿using OPS.Models;
+using OPS.Models.OPSContext;
 using OPS.Repostiories;
 using PagedList;
 using System;
@@ -17,9 +18,9 @@ namespace OPS.Services
             get { return _repository ?? new ProductRepository(); }
         }
 
-        public IPagedList<Product> GetAllProduct(int Page, int PageSize)
+        public IPagedList<Product> GetProductList(ProductSearchParameter searchpara, int Page, int PageSize)
         {
-            return Repository.GetAllProducts(Page, PageSize);
+            return Repository.GetProductList(searchpara, Page, PageSize);
         }
 
         public List<PDCategory> GetCategoryDropdownList()

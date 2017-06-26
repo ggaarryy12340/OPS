@@ -24,7 +24,7 @@ namespace OPS.Controllers
         public ActionResult Index(int? page, ProductIndextView model)
         {
             var pageNumeber = page ?? 1;
-            model.Products = Service.GetAllProduct(pageNumeber, pageSize);
+            model.Products = Service.GetProductList(model.ProductSearchParameter, pageNumeber, pageSize);
             return View(model);
         }
 
