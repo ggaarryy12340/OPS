@@ -46,5 +46,10 @@ namespace OPS.Services
         {
             return Repository.ProductDelete(id);
         }
+
+        public void Dispose()
+        {
+            Repository.Dispose();
+        }
     }
 }
