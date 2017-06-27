@@ -154,14 +154,6 @@ namespace OPS.Controllers
                     }
                 }
 
-                //檢查Excel內容是否為空
-                if (shopees.Count() < 1)
-                {
-                    msg = "匯入檔案的資料為空!";
-                    TempData["message"] = msg;
-                    return View("Index");
-                }
-
                 #region 解析 商品資訊 與 收件住址
                 //蝦皮將訂單明細都放到商品資訊，固定對商品資訊解析出商品明細。
                 List<string> checkProducts = new List<string>();
@@ -181,7 +173,7 @@ namespace OPS.Controllers
                     }
 
                     checkProducts.AddRange(details.Select(x => x.ProductNo));
-                    shopee.ToKantOrderShopeeDetails = details;
+                    shopee.OrderShopeeDetails = details;
                 }
 
                 //根據寄送方式 7-11與全家 需另外解析住址
@@ -204,8 +196,8 @@ namespace OPS.Controllers
                 }
                 #endregion
 
-                ////寫入資料至主表與明細
-                //msg = Service.ImportOrders(shopees, products);
+                //寫入資料至主表與明細
+                msg = Service.ImportOrders(shopees);
             }
             catch (Exception ex)
             {
@@ -214,6 +206,15 @@ namespace OPS.Controllers
 
             TempData["message"] = msg;
             return View("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Service.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

@@ -31,6 +31,6 @@ namespace OPS.Models
         public string ConvenienceStoreNo { get; set; }
         #endregion
 
-        public List<ImportShopeeTWDetail> ToKantOrderShopeeDetails { get; set; }
+        public List<ImportShopeeTWDetail> OrderShopeeDetails { get; set; }
     }
 }
