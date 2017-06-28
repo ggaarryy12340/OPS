@@ -191,6 +191,8 @@ namespace OPS.Services
                     od.OrderPrice = shopee.SubTotal;
                     od.Feight = shopee.Freight;
                     od.Payment = shopee.Amount;
+                    od.ConvenienceStoreNo = shopee.ConvenienceStoreNo;
+                    od.ConvenienceStoreName = shopee.ConvenienceStoreName;
 
                     #endregion
 
@@ -202,6 +204,7 @@ namespace OPS.Services
                         OrderDetail odd = new OrderDetail();
                         odd.OrderDetailId = new Guid(); //訂單明細編號
                         odd.ProductName = PD.ProductName;
+                        odd.ProductId = PD.ProductId;
                         odd.Spec = string.Empty;
                         odd.Quantity = detail.ProductQuantity;
                         odd.UnitPrice = detail.ProductPrice;
@@ -213,10 +216,10 @@ namespace OPS.Services
                     }
                     #endregion
 
-                    rs = Repository.SaveOrder(od);
+                    Repository.SaveOrder(od);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

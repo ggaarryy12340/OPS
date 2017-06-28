@@ -112,3 +112,7 @@ D:\訂單處理系統OPS\OPS\OPS\bin\PagedList.Mvc.xml
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.InitialCreate.resources
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.csproj.GenerateResource.Cache
 D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.version1.resources
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.version2.resources
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.version3.resources
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.version4.resources
+D:\訂單處理系統OPS\OPS\OPS\obj\Debug\OPS.Migrations.version5.resources

@@ -250,6 +250,22 @@
     <Compile Include="Migrations\201706250736483_version1.Designer.cs">
       <DependentUpon>201706250736483_version1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706281330172_version2.cs" />
+    <Compile Include="Migrations\201706281330172_version2.Designer.cs">
+      <DependentUpon>201706281330172_version2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281347200_version3.cs" />
+    <Compile Include="Migrations\201706281347200_version3.Designer.cs">
+      <DependentUpon>201706281347200_version3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281413099_version4.cs" />
+    <Compile Include="Migrations\201706281413099_version4.Designer.cs">
+      <DependentUpon>201706281413099_version4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281417481_version5.cs" />
+    <Compile Include="Migrations\201706281417481_version5.Designer.cs">
+      <DependentUpon>201706281417481_version5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DAL\OPSContext.cs" />
@@ -398,6 +414,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706250736483_version1.resx">
       <DependentUpon>201706250736483_version1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281330172_version2.resx">
+      <DependentUpon>201706281330172_version2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281347200_version3.resx">
+      <DependentUpon>201706281347200_version3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281413099_version4.resx">
+      <DependentUpon>201706281413099_version4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281417481_version5.resx">
+      <DependentUpon>201706281417481_version5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

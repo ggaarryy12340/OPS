@@ -33,11 +33,11 @@ namespace OPS.Models.OPSContext
 
         public virtual PickingMakeLog PickingMakeLog { get; set; }
 
-        public virtual ICollection<Order> Orders{ get; set; }
+        //public virtual ICollection<Order> Orders{ get; set; }
 
         public Picking()
         {
-            Orders = new List<Order>();
+            //Orders = new List<Order>();
             PickingId = Guid.NewGuid();
             IsComplete = "N";
         }
