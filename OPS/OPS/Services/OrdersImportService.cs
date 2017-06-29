@@ -178,7 +178,7 @@ namespace OPS.Services
                     #region 產生主檔
                     Order od = new Order();
 
-                    od.OrderId = new Guid(); //訂單ID
+                    //od.OrderId = Guid.NewGuid(); //訂單ID
                     od.SourceOrderId = shopee.OrderNo;//來源訂單編號
                     od.OrderDateTime = nowDate;
                     od.OrderStatus = "1";
@@ -202,7 +202,7 @@ namespace OPS.Services
                         Product PD = Repository.GetPD(detail.ProductNo);
 
                         OrderDetail odd = new OrderDetail();
-                        odd.OrderDetailId = new Guid(); //訂單明細編號
+                        odd.OrderDetailId = Guid.NewGuid(); //訂單明細編號
                         odd.ProductName = PD.ProductName;
                         odd.ProductId = PD.ProductId;
                         odd.Spec = string.Empty;
