@@ -280,7 +280,9 @@
     <Compile Include="Models\OPSContext\Picking.cs" />
     <Compile Include="Models\OPSContext\PickingMakeLog.cs" />
     <Compile Include="Models\OPSContext\Product.cs" />
+    <Compile Include="Models\OrderSearchParameter.cs" />
     <Compile Include="Models\ProductSearchParameter.cs" />
+    <Compile Include="Models\ViewModel\OrdersIndexView.cs" />
     <Compile Include="Models\ViewModel\ProductCategoryView.cs" />
     <Compile Include="Models\ViewModel\ProductIndextView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

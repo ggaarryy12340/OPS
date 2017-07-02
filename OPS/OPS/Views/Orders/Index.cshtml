@@ -1,7 +1,162 @@
-﻿
+﻿@model OPS.Models.ViewModel.OrdersIndexView
+@using PagedList;
+@using PagedList.Mvc;
+@Styles.Render("~/Content/PagedList.css")
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "訂單管理";
 }
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">訂單管理</h1>
+    </div>
+</div>
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-lg-8">
+        @using (Html.BeginForm("Index", "Orders", FormMethod.Post))
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">訂單查詢</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>起始日期</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderDateStartAt, new { @class = "form-control datepicker" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>結束日期</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderDateEndAt, new { @class = "form-control datepicker" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>訂單ID</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderId, new { @class = "form-control", id = "OrderId" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>來源訂單編號</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.SourceOrderId, new { @class = "form-control", id = "SourceOrderId" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>訂單狀態</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderStatus, new { @class = "form-control", id = "OrderStatus" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>物流方式</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.DeliveryWay, new { @class = "form-control", id = "DeliveryWay" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>訂單來源</label>
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.Distributor, new { @class = "form-control", id = "Distributor" })
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <div style="margin-top:25px">
+                                <input type="submit" value="查詢" class="btn btn-info" />
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                            <div style="margin-top:25px">
+                                <input type="button" id="clear" value="清除" class="btn btn-danger" />
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">特殊查詢</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label>商品類別</label>
+                            @*@Html.BrandTypeHelperFor(m => m.BrandType, new { @class = "form-control" })*@
+                            @Html.TextBox("test", "", new { @class = "form-control" })
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div style="margin-top:25px">
+                            <input type="button" value="查詢" class="btn btn-info" onclick="doSearch()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.ActionLink("＋新增訂單", "CreateOrders", "Orders", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px;margin-bottom:10px;" })
+@Html.ActionLink("＋匯入新增訂單", "Index", "OrdersImport", null, new { @class = "btn btn-success", @style = "margin-left:10px;margin-right:5px;margin-bottom:10px;" })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().OrderId)</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().SourceOrderId)</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().OrderStatus)</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().DeliveryWay)</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().Distributor)</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().RecieveName)</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().Payment)</th>
+            <th>商品數量</th>
+            <th>@Html.DisplayNameFor(x => x.Orders.FirstOrDefault().OrderDateTime)</th>
+            <th style="width:5%"></th>
+            <th style="width:5%"></th>
+            <th style="width:5%"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+            {
+            <tr>
+                <td>@item.OrderId</td>
+                <td>@item.SourceOrderId</td>
+                <td>@item.OrderStatus</td>
+                <td>@item.DeliveryWay</td>
+                <td>@item.Distributor</td>
+                <td>@item.RecieveName</td>
+                <td>@item.Payment</td>
+                <td>@item.OrderDetails.Sum(x => x.Quantity)</td>
+                <td>@item.OrderDateTime</td>
+                <td>@Html.ActionLink("明細", "OrdersDetail", "Orders", new { id = item.OrderId }, new { @class = "btn btn-info" })</td>
+                <td>@Html.ActionLink("修改", "OrdersEdit", "Orders", new { id = item.OrderId }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("刪除", "OrdersDelete", "Orders", new { id = item.OrderId }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</>
+
+@Html.PagedListPager(Model.Orders, page => Url.Action("Index", new { page }))
+
+<script type="text/javascript">
+    //清除篩選條件
+    $('#clear').click(function () {
+        $('#OrderId').val("");
+        $('#SourceOrderId').val("");
+    });
+</script>
