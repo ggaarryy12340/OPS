@@ -25,5 +25,11 @@ namespace OPS.Controllers
             model.Orders = Service.GetOrdersList(model.OrderSearchParameter, pageNumeber, pageSize);
             return View(model);
         }
+
+        public ActionResult OrdersDetail(Guid id)
+        {
+            var Order = Service.GetSingleOrder(id);
+            return View(Order);
+        }
     }
 }

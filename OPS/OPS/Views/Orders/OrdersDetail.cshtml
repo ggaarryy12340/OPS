@@ -1,0 +1,189 @@
+﻿@model OPS.Models.OPSContext.Order
+@{
+    ViewBag.Title = "訂單明細";
+}
+
+<style>
+    dt {
+        margin-top: 10px;
+    }
+
+    dd {
+        color: dimgrey;
+    }
+
+    .well {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 50px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">訂單明細</h1>
+    </div>
+</div>
+
+<div class="row well">
+    <div class="col-md-4">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.OrderId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderStatus)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.OrderStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecieveName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.RecieveName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecieveAddress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.RecieveAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Payment)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.Payment)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.ConvenienceStoreName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.ConvenienceStoreName)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(m => m.SourceOrderId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.SourceOrderId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.DeliveryWay)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.DeliveryWay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecievePhone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.RecievePhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.OrderPrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Weight)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.Weight)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.ConvenienceStoreNo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.ConvenienceStoreNo)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderDateTime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.OrderDateTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Distributor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.Distributor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecieveZipCode)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.RecieveZipCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Feight)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.Feight)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.TrackingNo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.TrackingNo)
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>商品圖片</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().OrderDetailId)</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().ProductId)</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().ProductName)</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().Spec)</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().Quantity)</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().UnitPrice)</th>
+                <th>@Html.DisplayNameFor(x => x.OrderDetails.FirstOrDefault().TotalPrice)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td><img src="@item.Product.ImageURL" width="50"></td>
+                    <td>@item.OrderDetailId</td>
+                    <td>@item.ProductId</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Spec</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.TotalPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="col-md-1 col-sm-offset-10">
+    @Html.ActionLink("返回", "Index", "Orders", "", new { @class = "btn btn-info" })
+</div>

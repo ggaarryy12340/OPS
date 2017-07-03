@@ -22,5 +22,10 @@ namespace OPS.Services
         {
             return Repository.GetOrdersList(searchpara, Page, PageSize);
         }
+
+        public Order GetSingleOrder(Guid id)
+        {
+            return Repository.GetSingleOrder(id);
+        }
     }
 }

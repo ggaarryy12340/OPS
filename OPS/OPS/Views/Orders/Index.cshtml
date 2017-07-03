@@ -23,14 +23,14 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label>起始日期</label>
-                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderDateStartAt, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderDateStartAt, new { @class = "form-control OPS-datepicker" })
                                 <p class="help-block"></p>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label>結束日期</label>
-                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderDateEndAt, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderDateEndAt, new { @class = "form-control OPS-datepicker" })
                                 <p class="help-block"></p>
                             </div>
                         </div>
@@ -149,7 +149,6 @@
         }
     </tbody>
 </table>
-</>
 
 @Html.PagedListPager(Model.Orders, page => Url.Action("Index", new { page }))
 
@@ -158,5 +157,13 @@
     $('#clear').click(function () {
         $('#OrderId').val("");
         $('#SourceOrderId').val("");
+        $('.OPS-datepicker').val("");
+        $('#OrderStatus').val("");
+        $('#DeliveryWay').val("");
+        $('#Distributor').val("");
+    });
+
+    $(function () {
+        $(".OPS-datepicker").datepicker();
     });
 </script>

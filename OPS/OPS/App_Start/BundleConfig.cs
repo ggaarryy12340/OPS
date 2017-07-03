@@ -38,6 +38,12 @@ namespace OPS
             bundles.Add(new StyleBundle("~/Content/PagedList.css").Include(
                       "~/Content/PagedList.css"));
 
+            bundles.Add(new StyleBundle("~/Content/jquery-ui.css").Include(
+                      "~/Content/jquery-ui.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-ui").Include(
+                      "~/Scripts/jquery-ui.js"));
+
             #endregion
         }
     }
