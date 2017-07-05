@@ -1,0 +1,15 @@
+﻿@model OPS.Models.OPSContext.OrderDetail
+
+<tr>
+    @using (Html.BeginCollectionItem("OrderDetails"))
+    {
+        <td>@Html.TextBoxFor(m => m.OrderDetailId, new { @class = "form-control"})</td>
+        <td>@Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })</td>
+        <td>@Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })</td>
+        <td>@Html.TextBoxFor(m => m.Spec, new { @class = "form-control" })</td>
+        <td>@Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })</td>
+        <td>@Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" })</td>
+        <td>@Html.TextBoxFor(m => m.TotalPrice, new { @class = "form-control" })</td>
+        <td><button class="btn btn-danger" onclick="$(this).parents('tr').remove();">取消</button></td>
+    }
+</tr>

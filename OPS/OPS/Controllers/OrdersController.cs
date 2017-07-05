@@ -26,6 +26,17 @@ namespace OPS.Controllers
             return View(model);
         }
 
+        public ActionResult CreateOrders()
+        {
+            return View();
+        }
+
+        //動態新增明細列
+        public ActionResult CreateDetail()
+        {
+            return PartialView("_CreateDetail");
+        }
+
         public ActionResult OrdersDetail(Guid id)
         {
             var Order = Service.GetSingleOrder(id);

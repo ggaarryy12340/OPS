@@ -1,0 +1,198 @@
+﻿@model OPS.Models.OPSContext.Order
+@{
+    ViewBag.Title = "新增訂單";
+}
+<style>
+    dt {
+        margin-top: 10px;
+    }
+
+    dd {
+        color: dimgrey;
+    }
+
+    .well {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 50px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">新增訂單</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm("CreateOrders", "Orders", FormMethod.Post, new { enctype = "multipart/form-data", id = "Form" }))
+{
+
+<div class="row well">
+    <div class="col-md-4">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderId)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control", @disabled = true, @Value = "自動產生" }) @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderStatus)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.OrderStatus, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecieveName)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.RecieveName, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.RecieveName, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecieveAddress)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.RecieveAddress, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.RecieveAddress, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Payment)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.Payment, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Payment, "", new { @class = "text-danger" })
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.ConvenienceStoreName)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.ConvenienceStoreName, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ConvenienceStoreName, "", new { @class = "text-danger" })
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(m => m.SourceOrderId)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.SourceOrderId, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.SourceOrderId, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.DeliveryWay)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.DeliveryWay, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.DeliveryWay, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecievePhone)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.RecievePhone, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.RecievePhone, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderPrice)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.OrderPrice, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.OrderPrice, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Weight)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.Weight, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(m => m.ConvenienceStoreNo)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.ConvenienceStoreNo, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ConvenienceStoreNo, "", new { @class = "text-danger" })
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(m => m.OrderDateTime)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.OrderDateTime, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.OrderDateTime, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Distributor)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.Distributor, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Distributor, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.RecieveZipCode)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.RecieveZipCode, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.RecieveZipCode, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.Feight)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.Feight, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Feight, "", new { @class = "text-danger" })
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(m => m.TrackingNo)
+            </dt>
+            <dd>
+                @Html.TextBoxFor(m => m.TrackingNo, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.TrackingNo, "", new { @class = "text-danger" })
+            </dd>
+            <dt>
+
+            </dt>
+            <dd>
+                <input type="button" id="addDetail" class="btn btn-primary" style="margin-top:20px" value="新增項目" />
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<br />
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().OrderDetailId)</th>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().ProductId)</th>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().ProductName)</th>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().Spec)</th>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().Quantity)</th>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().UnitPrice)</th>
+                    <th>@Html.LabelFor(m => m.OrderDetails.FirstOrDefault().TotalPrice)</th>
+                    <th>取消</th>
+                </tr>
+            </thead>
+            <tbody id="OrderDetail"></tbody>
+        </table>
+    </div>
+</div>
+
+<input id="Save" type="button" class="btn btn-primary" value="儲存" />
+}
+
+<script type="text/javascript">
+
+        $("#addDetail").click(function () {
+            $.get('/Orders/CreateDetail', function (template) {
+                $("#OrderDetail").append(template);
+            });
+            //event.preventDefault();
+        });
+
+</script>
