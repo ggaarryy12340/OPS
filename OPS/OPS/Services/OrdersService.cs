@@ -27,5 +27,10 @@ namespace OPS.Services
         {
             return Repository.GetSingleOrder(id);
         }
+
+        public bool CreateOrder(Order model)
+        {
+            return Repository.CreateOrder(model);
+        }
     }
 }

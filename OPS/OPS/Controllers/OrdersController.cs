@@ -1,4 +1,5 @@
-﻿using OPS.Models.ViewModel;
+﻿using OPS.Models.OPSContext;
+using OPS.Models.ViewModel;
 using OPS.Services;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,30 @@ namespace OPS.Controllers
         public ActionResult CreateOrders()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateOrders(Order model)
+        {
+            bool rs = false;
+
+            //表單驗證
+            if (ModelState.IsValid)
+            {
+                rs = Service.CreateOrder(model);
+                if (rs)
+                {
+                    TempData["message"] = "增加訂單成功";
+                }
+                else
+                {
+                    TempData["message"] = "增加訂單失敗";
+                }
+
+                return RedirectToAction("Index");
+            }
+            //ViewBag.CategoryDropdownList = new SelectList(Service.GetCategoryDropdownList(), "PDCategoryId", "PDCategoryName");
+            return View(model);
         }
 
         //動態新增明細列

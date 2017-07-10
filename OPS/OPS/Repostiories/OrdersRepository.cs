@@ -79,5 +79,11 @@ namespace OPS.Repostiories
         {
             return db.Order.Find(id);
         }
+
+        public bool CreateOrder(Order model)
+        {
+            db.Order.Add(model);
+            return db.SaveChanges() > 0;
+        }
     }
 }

@@ -353,3 +353,4 @@ D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.csproj.GenerateResource.Cache
 D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.dll
 D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.pdb
 D:\OPS訂單管理系統\OPS\OPS\bin\BeginCollectionItem.dll
+D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.Migrations.version6.resources

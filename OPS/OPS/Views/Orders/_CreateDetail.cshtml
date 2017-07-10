@@ -3,7 +3,7 @@
 <tr>
     @using (Html.BeginCollectionItem("OrderDetails"))
     {
-        <td>@Html.TextBoxFor(m => m.OrderDetailId, new { @class = "form-control"})</td>
+        <td>@Html.TextBoxFor(m => m.OrderDetailId, new { @class = "form-control", @disabled = true, @Value = "自動產生"})</td>
         <td>@Html.TextBoxFor(m => m.ProductId, new { @class = "form-control" })</td>
         <td>@Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })</td>
         <td>@Html.TextBoxFor(m => m.Spec, new { @class = "form-control" })</td>

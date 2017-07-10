@@ -41,7 +41,7 @@
                 @Html.DisplayNameFor(m => m.OrderStatus)
             </dt>
             <dd>
-                @Html.TextBoxFor(m => m.OrderStatus, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.OrderStatus, new { @class = "form-control", @disabled = true, @Value = "1" }) @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
             </dd>
 
             <dt>
@@ -122,7 +122,7 @@
                 @Html.DisplayNameFor(m => m.OrderDateTime)
             </dt>
             <dd>
-                @Html.TextBoxFor(m => m.OrderDateTime, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.OrderDateTime, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.OrderDateTime, new { @class = "form-control OPS-datepicker" }) @Html.ValidationMessageFor(model => model.OrderDateTime, "", new { @class = "text-danger" })
             </dd>
 
             <dt>
@@ -183,7 +183,7 @@
     </div>
 </div>
 
-<input id="Save" type="button" class="btn btn-primary" value="儲存" />
+<input type="submit" class="btn btn-primary" value="儲存" />
 }
 
 <script type="text/javascript">
@@ -195,4 +195,8 @@
             //event.preventDefault();
         });
 
+        $(function () {
+            $(".OPS-datepicker").datepicker();
+        });
 </script>
+

@@ -68,7 +68,7 @@ namespace OPS.Models.OPSContext
         public decimal Payment { get; set; }
 
         [DisplayName("訂單重量")]
-        public decimal Weight { get; set; }
+        public decimal? Weight { get; set; }
 
         [DisplayName("物流追蹤號")]
         [StringLength(50)]
@@ -82,10 +82,10 @@ namespace OPS.Models.OPSContext
         [StringLength(20)]
         public string ConvenienceStoreNo { get; set; }
 
-        //[ForeignKey("Picking")]
-        //public Guid PickingId { get; set; } // 外來鍵
+        [ForeignKey("Picking")]
+        public Guid? PickingId { get; set; } // 外來鍵
 
-        //public virtual Picking Picking { get; set; }
+        public virtual Picking Picking { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
@@ -96,6 +96,7 @@ namespace OPS.Models.OPSContext
             OrderDetails = new List<OrderDetail>();
             PickingMakeLog = new List<PickingMakeLog>();
             OrderId = Guid.NewGuid();
+            OrderStatus = "1";
         }
     }
 }
