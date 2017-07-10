@@ -85,7 +85,7 @@
                 @Html.DisplayNameFor(m => m.DeliveryWay)
             </dt>
             <dd>
-                @Html.TextBoxFor(m => m.DeliveryWay, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.DeliveryWay, "", new { @class = "text-danger" })
+                @Html.DeliveryWayHelperFor(m => m.DeliveryWay, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.DeliveryWay, "", new { @class = "text-danger" })
             </dd>
 
             <dt>
@@ -129,7 +129,7 @@
                 @Html.DisplayNameFor(m => m.Distributor)
             </dt>
             <dd>
-                @Html.TextBoxFor(m => m.Distributor, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Distributor, "", new { @class = "text-danger" })
+                @Html.DistributorHelperFor(m => m.Distributor, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Distributor, "", new { @class = "text-danger" })
             </dd>
 
             <dt>

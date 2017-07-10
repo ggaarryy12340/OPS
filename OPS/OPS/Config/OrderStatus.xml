@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <add key="訂單成立" value="1" />
+  <add key="揀貨中" value="2" />
+  <add key="待出貨" value="3" />
+  <add key="已出貨" value="4" />
+  <add key="已取消" value="0" />
+</configuration>

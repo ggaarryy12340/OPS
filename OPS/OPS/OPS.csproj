@@ -246,6 +246,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DeliveryWayHelper.cs" />
+    <Compile Include="Helpers\DistributorHelper.cs" />
+    <Compile Include="Helpers\OrderStatusHelper.cs" />
+    <Compile Include="Helpers\PickingStatusHelper.cs" />
     <Compile Include="Migrations\201706121419368_InitialCreate.cs" />
     <Compile Include="Migrations\201706121419368_InitialCreate.Designer.cs">
       <DependentUpon>201706121419368_InitialCreate.cs</DependentUpon>
@@ -319,6 +323,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\DeliveryWay.xml" />
+    <Content Include="Config\Distributor.xml" />
+    <Content Include="Config\OrderStatus.xml" />
+    <Content Include="Config\PickingsStatus.xml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -363,7 +371,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

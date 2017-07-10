@@ -51,21 +51,21 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label>訂單狀態</label>
-                                @Html.TextBoxFor(m => m.OrderSearchParameter.OrderStatus, new { @class = "form-control", id = "OrderStatus" })
+                                @Html.OrderStatusHelperFor(m => m.OrderSearchParameter.OrderStatus, new { @class = "form-control", id = "OrderStatus" })
                                 <p class="help-block"></p>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label>物流方式</label>
-                                @Html.TextBoxFor(m => m.OrderSearchParameter.DeliveryWay, new { @class = "form-control", id = "DeliveryWay" })
+                                @Html.DeliveryWayHelperFor(m => m.OrderSearchParameter.DeliveryWay, new { @class = "form-control", id = "DeliveryWay" })
                                 <p class="help-block"></p>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label>訂單來源</label>
-                                @Html.TextBoxFor(m => m.OrderSearchParameter.Distributor, new { @class = "form-control", id = "Distributor" })
+                                @Html.DistributorHelperFor(m => m.OrderSearchParameter.Distributor, new { @class = "form-control", id = "Distributor" })
                                 <p class="help-block"></p>
                             </div>
                         </div>

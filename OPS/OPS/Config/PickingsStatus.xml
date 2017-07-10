@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <add key="待取單" value="1" />
+  <add key="待揀單" value="2" />
+  <add key="待分單" value="3" />
+  <add key="揀貨完成" value="4" />
+</configuration>

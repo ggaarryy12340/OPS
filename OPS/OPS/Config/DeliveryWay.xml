@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <add key="7-11" value="7-11" />
+  <add key="全家" value="全家" />
+  <add key="黑貓宅急便" value="黑貓宅急便" />
+</configuration>

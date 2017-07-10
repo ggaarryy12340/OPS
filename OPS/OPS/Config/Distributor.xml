@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <add key="蝦皮" value="蝦皮" />
+  <add key="Yahoo拍賣" value="Yahoo拍賣" />
+  <add key="Yahoo超級商城" value="Yahoo超級商城" />
+</configuration>
