@@ -1,6 +1,6 @@
 ﻿@model OPS.Models.OPSContext.Order
 @{
-    ViewBag.Title = "新增訂單";
+    ViewBag.Title = "編輯訂單";
 }
 <style>
     dt {
@@ -20,11 +20,11 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">新增訂單</h1>
+        <h1 class="page-header">編輯訂單</h1>
     </div>
 </div>
 
-@using (Html.BeginForm("CreateOrders", "Orders", FormMethod.Post, new { enctype = "multipart/form-data", id = "Form" }))
+@using (Html.BeginForm("OrdersEdit", "Orders", FormMethod.Post, new { enctype = "multipart/form-data", id = "Form" }))
 {
 
     <div class="row well">
@@ -34,14 +34,15 @@
                     @Html.DisplayNameFor(m => m.OrderId)
                 </dt>
                 <dd>
-                    @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control", @disabled = true, @Value = "自動產生" }) @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.OrderId, new { @class = "form-control", @disabled = true }) @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(x => x.OrderId)
                 </dd>
 
                 <dt>
                     @Html.DisplayNameFor(m => m.OrderStatus)
                 </dt>
                 <dd>
-                    @Html.TextBoxFor(m => m.OrderStatus, new { @class = "form-control", @disabled = true, @Value = "1" }) @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.OrderStatus, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
                 </dd>
 
                 <dt>
@@ -178,7 +179,12 @@
                         <th>取消</th>
                     </tr>
                 </thead>
-                <tbody id="OrderDetail"></tbody>
+                <tbody id="OrderDetail">
+                    @foreach (var item in Model.OrderDetails)
+                    {
+                        @Html.Partial("_EditDetail", item)
+                    }
+                </tbody>
             </table>
         </div>
     </div>
@@ -216,6 +222,4 @@
              alert("產品管理內無此商品編號!!");
          })
     }
-
 </script>
-

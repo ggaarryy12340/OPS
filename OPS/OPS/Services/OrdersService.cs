@@ -32,5 +32,15 @@ namespace OPS.Services
         {
             return Repository.CreateOrder(model);
         }
+
+        public bool OrdersEdit(Order model)
+        {
+            return Repository.OrdersEdit(model);
+        }
+
+        public Product ReturnPDInfo(string PDNo)
+        {
+            return Repository.ReturnPDInfo(PDNo);
+        }
     }
 }

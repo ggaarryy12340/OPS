@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+//using System.Transactions;
 
 namespace OPS.Repostiories
 {
@@ -84,6 +85,53 @@ namespace OPS.Repostiories
         {
             db.Order.Add(model);
             return db.SaveChanges() > 0;
+        }
+
+        public bool OrdersEdit(Order model)
+        {
+            bool rs = false;
+            //var ODFromDb = db.Order.Find(model.OrderId);
+            //try
+            //{
+            //    using (TransactionScope ts = new TransactionScope())
+            //    {
+            //        //修改訂單主檔
+            //        db.Entry(ODFromDb).CurrentValues.SetValues(model);
+            //        db.SaveChanges();
+
+            //        //OrderDetails
+            //        if (model.OrderDetails != null)
+            //        {
+            //            foreach (var item in model.OrderDetails)
+            //            {
+            //                var npDetailDB = ODFromDb.OrderDetails.FirstOrDefault(x => x.OrderDetailId == item.OrderDetailId);
+            //                if (npDetailDB != null) //Modify
+            //                {
+            //                    //修改訂單明細檔
+            //                    db.Entry(npDetailDB).CurrentValues.SetValues(item);
+            //                    db.SaveChanges();
+            //                }
+            //                else //Add New
+            //                {
+            //                    item.OrderId = model.OrderId;
+            //                    db.OrderDetail.Add(item);
+            //                    db.SaveChanges();
+            //                }
+            //            }
+            //        }
+
+            //        ts.Complete();
+            //        rs = true;
+            //    }
+            //}
+            //catch (Exception ex) { }
+
+            return rs;
+        }
+
+        public Product ReturnPDInfo(string PDNo)
+        {
+            return db.Product.Find(PDNo);
         }
     }
 }

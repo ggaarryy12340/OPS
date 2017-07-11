@@ -52,7 +52,6 @@ namespace OPS.Controllers
 
                 return RedirectToAction("Index");
             }
-            //ViewBag.CategoryDropdownList = new SelectList(Service.GetCategoryDropdownList(), "PDCategoryId", "PDCategoryName");
             return View(model);
         }
 
@@ -66,6 +65,42 @@ namespace OPS.Controllers
         {
             var Order = Service.GetSingleOrder(id);
             return View(Order);
+        }
+
+        public ActionResult OrdersEdit(Guid id)
+        {
+            var Order = Service.GetSingleOrder(id);
+            return View(Order);
+        }
+
+        [HttpPost]
+        public ActionResult OrdersEdit(Order model)
+        {
+            bool rs = false;
+
+            //表單驗證
+            if (ModelState.IsValid)
+            {
+                rs = Service.OrdersEdit(model);
+                if (rs)
+                {
+                    TempData["message"] = "編輯訂單成功";
+                }
+                else
+                {
+                    TempData["message"] = "編輯訂單失敗";
+                }
+
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        //輸入商品編號回傳商品資訊
+        public ActionResult ReturnPDInfo(string PDNewNo)
+        {
+            var PDInfo = Service.ReturnPDInfo(PDNewNo);
+            return Json(PDInfo, JsonRequestBehavior.AllowGet);
         }
     }
 }

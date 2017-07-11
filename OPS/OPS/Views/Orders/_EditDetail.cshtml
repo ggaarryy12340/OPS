@@ -1,0 +1,16 @@
+﻿@model OPS.Models.OPSContext.OrderDetail
+
+<tr>
+    @using (Html.BeginCollectionItem("OrderDetails"))
+    {
+        <td>@Html.TextBoxFor(m => m.OrderDetailId, new { @class = "form-control", @disabled = true }) @Html.ValidationMessageFor(model => model.OrderDetailId, "", new { @class = "text-danger" })</td>
+        @Html.HiddenFor(x => x.OrderDetailId)
+        <td>@Html.TextBoxFor(m => m.ProductId, new { @class = "form-control", onblur = "PDNoOnBlur(this)" }) @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })</td>
+        <td>@Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })</td>
+        <td>@Html.TextBoxFor(m => m.Spec, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Spec, "", new { @class = "text-danger" })</td>
+        <td>@Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })</td>
+        <td>@Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })</td>
+        <td>@Html.TextBoxFor(m => m.TotalPrice, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })</td>
+        <td><button class="btn btn-danger" onclick="$(this).parents('tr').remove();">取消</button></td>
+    }
+</tr>
