@@ -90,41 +90,53 @@ namespace OPS.Repostiories
         public bool OrdersEdit(Order model)
         {
             bool rs = false;
-            //var ODFromDb = db.Order.Find(model.OrderId);
-            //try
-            //{
-            //    using (TransactionScope ts = new TransactionScope())
-            //    {
-            //        //修改訂單主檔
-            //        db.Entry(ODFromDb).CurrentValues.SetValues(model);
-            //        db.SaveChanges();
+            var ODFromDb = db.Order.Find(model.OrderId);
+            try
+            {
+                //修改訂單主檔
+                ODFromDb.SourceOrderId = model.SourceOrderId;
+                ODFromDb.OrderDateTime = model.OrderDateTime;
+                ODFromDb.OrderStatus = model.OrderStatus;
+                ODFromDb.DeliveryWay = model.DeliveryWay;
+                ODFromDb.Distributor = model.Distributor;
+                ODFromDb.RecieveName = model.RecieveName;
+                ODFromDb.RecievePhone = model.RecievePhone;
+                ODFromDb.RecieveZipCode = model.RecieveZipCode;
+                ODFromDb.RecieveAddress = model.RecieveAddress;
+                ODFromDb.OrderPrice = model.OrderPrice;
+                ODFromDb.Feight = model.Feight;
+                ODFromDb.Payment = model.Payment;
+                ODFromDb.Weight = model.Weight;
+                ODFromDb.TrackingNo = model.TrackingNo;
+                ODFromDb.ConvenienceStoreName = model.ConvenienceStoreName;
+                ODFromDb.ConvenienceStoreNo = model.ConvenienceStoreNo;
 
-            //        //OrderDetails
-            //        if (model.OrderDetails != null)
-            //        {
-            //            foreach (var item in model.OrderDetails)
-            //            {
-            //                var npDetailDB = ODFromDb.OrderDetails.FirstOrDefault(x => x.OrderDetailId == item.OrderDetailId);
-            //                if (npDetailDB != null) //Modify
-            //                {
-            //                    //修改訂單明細檔
-            //                    db.Entry(npDetailDB).CurrentValues.SetValues(item);
-            //                    db.SaveChanges();
-            //                }
-            //                else //Add New
-            //                {
-            //                    item.OrderId = model.OrderId;
-            //                    db.OrderDetail.Add(item);
-            //                    db.SaveChanges();
-            //                }
-            //            }
-            //        }
-
-            //        ts.Complete();
-            //        rs = true;
-            //    }
-            //}
-            //catch (Exception ex) { }
+                //OrderDetails
+                if (model.OrderDetails != null)
+                {
+                    foreach (var item in model.OrderDetails)
+                    {
+                        var npDetailDB = ODFromDb.OrderDetails.FirstOrDefault(x => x.OrderDetailId == item.OrderDetailId);
+                        if (npDetailDB != null) //Modify
+                        {
+                            //修改訂單明細檔
+                            npDetailDB.ProductId = item.ProductId;
+                            npDetailDB.ProductName = item.ProductName;
+                            npDetailDB.Spec = item.Spec;
+                            npDetailDB.Quantity = item.Quantity;
+                            npDetailDB.UnitPrice = item.UnitPrice;
+                            npDetailDB.TotalPrice = item.TotalPrice;
+                        }
+                        else //新增訂單明細檔
+                        {
+                            item.OrderId = model.OrderId;
+                            db.OrderDetail.Add(item);
+                        }
+                    }
+                }
+                rs = db.SaveChanges() > 0;
+            }
+            catch (Exception ex) { }
 
             return rs;
         }

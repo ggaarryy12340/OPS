@@ -11,6 +11,6 @@
         <td>@Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })</td>
         <td>@Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })</td>
         <td>@Html.TextBoxFor(m => m.TotalPrice, new { @class = "form-control" }) @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })</td>
-        <td><button class="btn btn-danger" onclick="$(this).parents('tr').remove();">取消</button></td>
+        <td></td>
     }
 </tr>
