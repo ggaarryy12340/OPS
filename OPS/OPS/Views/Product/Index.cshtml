@@ -103,7 +103,7 @@
                     <td>$ @item.CreateTime</td>
                     <td>@Html.ActionLink("明細", "ProductDetail", "Product", new { id = item.ProductId }, new { @class = "btn btn-info" })</td>
                     <td>@Html.ActionLink("修改", "ProductEdit", "Product", new { id = item.ProductId }, new { @class = "btn btn-warning" })</td>
-                    <td>@Html.ActionLink("刪除", "ProductDelete", "Product", new { id = item.ProductId }, new { @class = "btn btn-danger" })</td>
+                    <td>@Html.ActionLink("下架", "ProductOffShelf", "Product", new { id = item.ProductId }, new { @class = "btn btn-danger" })</td>
                 </tr>
             }
         </tbody>
