@@ -294,6 +294,7 @@
     <Compile Include="Models\OPSContext\PickingMakeLog.cs" />
     <Compile Include="Models\OPSContext\Product.cs" />
     <Compile Include="Models\OrderSearchParameter.cs" />
+    <Compile Include="Models\OrderToPickingParameters.cs" />
     <Compile Include="Models\ProductSearchParameter.cs" />
     <Compile Include="Models\ViewModel\OrdersIndexView.cs" />
     <Compile Include="Models\ViewModel\ProductCategoryView.cs" />
@@ -417,11 +418,11 @@
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <Content Include="Views\Orders\OrdersEdit.cshtml" />
     <Content Include="Views\Orders\_EditDetail.cshtml" />
+    <Content Include="Views\OrdersToPickings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OrdersDelivery\" />
-    <Folder Include="Views\OrdersToPickings\" />
     <Folder Include="Views\PickingsAsign\" />
     <Folder Include="Views\PickingsGet\" />
     <Folder Include="Views\PickingsPack\" />
