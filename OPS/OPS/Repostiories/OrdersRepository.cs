@@ -81,9 +81,27 @@ namespace OPS.Repostiories
             return db.Order.Find(id);
         }
 
+        /// <summary>
+        /// 新增訂單
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public bool CreateOrder(Order model)
         {
             db.Order.Add(model);
+            return db.SaveChanges() > 0;
+        }
+
+        /// <summary>
+        /// 新增訂單紀錄
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool CreateOrderStatusLog(Order model)
+        {
+            OrderStatusLog newlog = new OrderStatusLog();
+            newlog.OrderId = model.OrderId;
+            db.OrderStatusLog.Add(newlog);
             return db.SaveChanges() > 0;
         }
 

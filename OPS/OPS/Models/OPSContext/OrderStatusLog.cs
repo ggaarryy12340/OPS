@@ -38,6 +38,7 @@ namespace OPS.Models.OPSContext
         public OrderStatusLog()
         {
             OrderStatusLogId = Guid.NewGuid();
+            OrderCreateTime = DateTime.Now;
         }
     }
 }

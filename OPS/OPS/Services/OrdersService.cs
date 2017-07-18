@@ -30,7 +30,16 @@ namespace OPS.Services
 
         public bool CreateOrder(Order model)
         {
-            return Repository.CreateOrder(model);
+            var rs1 = false;
+            var rs2 = false;
+
+            rs1 = Repository.CreateOrder(model);
+            if (rs1)
+            {
+                rs2 = Repository.CreateOrderStatusLog(model);
+            }
+
+            return rs2;
         }
 
         public bool OrdersEdit(Order model)
