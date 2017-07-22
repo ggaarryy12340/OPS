@@ -32,7 +32,7 @@ namespace OPS.Controllers
             if (ModelState.IsValid)
             {
                 var Orders = Service.FindOrders(para);
-                Service.MakePicking(Orders, para.OrdersPerPicking);
+                Service.MakePicking(Orders, para.OrdersPerPicking, para.DeliveryWay);
             }
             return View(para);
             

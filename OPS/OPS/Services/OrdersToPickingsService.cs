@@ -22,17 +22,27 @@ namespace OPS.Services
             return Repository.FindOrders(para);
         }
 
-        public bool MakePicking(List<Order> Orders, int OrdersPerPicking)
+        public void MakePicking(List<Order> Orders, decimal OrdersPerPicking, string DeliveryWay)
         {
-            //decimal x = Math.Ceiling(Orders.Count() / OrdersPerPicking);
-            ////揀貨單的數量
-            ////int CountOfPickings = Convert.ToInt32(Math.Ceiling(Orders.Count()/OrdersPerPicking));//無條件進位到整數
+            bool rs = false;
+            Guid PickingMakeLogId;
 
-            ////for (int i = 0; i < CountOfPickings; i++)
-            ////{
-            ////    var ThisPickingOrders = Orders.Skip(i * OrdersPerPicking).Take(OrdersPerPicking);
-            ////}
-            return false;
+            //揀貨單的數量
+            int CountOfPickings = (int)(Math.Ceiling(Orders.Count() / OrdersPerPicking)); ;//無條件進位到整數
+
+            //產生製單紀錄PickingMakeLog
+            rs = Repository.CreatePickingMakeLog(CountOfPickings, DeliveryWay, out PickingMakeLogId);
+
+            //產生揀貨單Picking
+            if (rs)
+            {
+                for (var i = 1; i <= CountOfPickings; i++)
+                {
+                    var ThisPickingOrders = Orders.Skip((i-1) * (int)OrdersPerPicking).Take((int)OrdersPerPicking).ToList();//此揀貨單包含的訂單
+                    Repository.MakeSinglePicking(i, PickingMakeLogId, ThisPickingOrders);
+                }
+            }
         }
+
     }
 }

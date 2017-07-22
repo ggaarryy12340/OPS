@@ -279,6 +279,18 @@
     <Compile Include="Migrations\201707100437215_version6.Designer.cs">
       <DependentUpon>201707100437215_version6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707220545406_version7.cs" />
+    <Compile Include="Migrations\201707220545406_version7.Designer.cs">
+      <DependentUpon>201707220545406_version7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707220846349_version8.cs" />
+    <Compile Include="Migrations\201707220846349_version8.Designer.cs">
+      <DependentUpon>201707220846349_version8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707220927023_version9.cs" />
+    <Compile Include="Migrations\201707220927023_version9.Designer.cs">
+      <DependentUpon>201707220927023_version9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DAL\OPSContext.cs" />
@@ -459,6 +471,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707100437215_version6.resx">
       <DependentUpon>201707100437215_version6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707220545406_version7.resx">
+      <DependentUpon>201707220545406_version7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707220846349_version8.resx">
+      <DependentUpon>201707220846349_version8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707220927023_version9.resx">
+      <DependentUpon>201707220927023_version9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

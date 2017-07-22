@@ -44,10 +44,60 @@ namespace OPS.Repostiories
                     para.OrderEndAt = Convert.ToDateTime(date + " " + time);
 
                     ODList = ODList.Where(a => a.OrderDateTime >= para.OrderStartAt && a.OrderDateTime <= para.OrderEndAt).OrderBy(a => a.OrderDateTime);
-                } 
+                }
             }
 
             return ODList.ToList();
+        }
+
+        /// <summary>
+        /// 產生製單紀錄PickingMakeLog
+        /// </summary>
+        /// <param name="CountOfPickings"></param>
+        /// <param name="DeliveryWay"></param>
+        /// <returns></returns>
+        public bool CreatePickingMakeLog(int CountOfPickings, string DeliveryWay, out Guid PickingMakeLogId)
+        {
+
+            PickingMakeLog pickingMakeLog = new PickingMakeLog();
+            PickingMakeLogId = pickingMakeLog.PickingMakeLogId;//回傳PickingMakeLogId參數
+
+            pickingMakeLog.DeliveryWay = DeliveryWay;
+            pickingMakeLog.PickingMakeLogTime = DateTime.Now;
+            pickingMakeLog.RoundQty = CountOfPickings;
+            db.PickingMakeLog.Add(pickingMakeLog);
+
+            return db.SaveChanges() > 0;
+        }
+
+        /// <summary>
+        /// 產生揀貨單Picking
+        /// </summary>
+        /// <param name="round"></param>
+        /// <param name="PickingMakeLogId"></param>
+        /// <param name="ThisPickingOrders"></param>
+        public void MakeSinglePicking(int round, Guid PickingMakeLogId, List<Order> ThisPickingOrders)
+        {
+            Picking picking = new Picking();
+
+            picking.PickingDateTime = DateTime.Now;
+            picking.Round = round;
+            picking.PickingMakeLogId = PickingMakeLogId;
+            db.Picking.Add(picking);
+
+            //定單狀態改為揀貨中，加入OrderLog揀貨中時間
+            foreach (var item in ThisPickingOrders)
+            {
+                var Order = db.Order.FirstOrDefault(x => x.OrderId == item.OrderId);
+                var OrderLog = db.OrderStatusLog.FirstOrDefault(x => x.OrderId == item.OrderId);
+
+                OrderLog.OrderPickingTime = DateTime.Now;//紀錄訂單揀貨中時間
+
+                Order.PickingId = picking.PickingId;//訂單加入揀貨單編號
+                Order.OrderStatus = "2";//狀態:揀貨中
+            }
+
+            db.SaveChanges();
         }
     }
 }

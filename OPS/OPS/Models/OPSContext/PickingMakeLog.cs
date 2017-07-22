@@ -21,8 +21,8 @@ namespace OPS.Models.OPSContext
         [DisplayName("製單紀錄總輪數")]
         public int RoundQty { get; set; }
 
-        [StringLength(2)]
-        [DisplayName("物流方式代碼")]
+        [StringLength(20)]
+        [DisplayName("物流方式")]
         public string DeliveryWay { get; set; }
 
         public virtual ICollection<Picking> Pickings { get; set; }

@@ -21,12 +21,13 @@ namespace OPS.Models
         public string Distributor { get; set; }
 
         [DisplayName("物流方式")]
+        [Required]
         public string DeliveryWay { get; set; }
 
         [DisplayName("訂單狀態")]
         public int? OrderStatus { get; set; }
 
         [DisplayName("訂單數/揀貨單")]
-        public int OrdersPerPicking { get; set; }
+        public decimal OrdersPerPicking { get; set; }
     }
 }

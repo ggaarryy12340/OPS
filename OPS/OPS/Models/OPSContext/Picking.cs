@@ -20,8 +20,7 @@ namespace OPS.Models.OPSContext
 
         [DisplayName("輪數")]
         [Required]
-        [StringLength(10)]
-        public string Round { get; set; }
+        public int Round { get; set; }
 
         [DisplayName("揀貨完成")]
         [Required]

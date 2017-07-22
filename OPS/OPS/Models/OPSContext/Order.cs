@@ -89,12 +89,12 @@ namespace OPS.Models.OPSContext
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-        public virtual ICollection<PickingMakeLog> PickingMakeLog { get; set; }
+        public virtual ICollection<OrderStatusLog> OrderStatusLogs { get; set; }
 
         public Order()
         {
             OrderDetails = new List<OrderDetail>();
-            PickingMakeLog = new List<PickingMakeLog>();
+            OrderStatusLogs = new List<OrderStatusLog>();
             OrderId = Guid.NewGuid();
             OrderStatus = "1";
         }
