@@ -357,3 +357,4 @@ D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.Migrations.version6.resources
 D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.Migrations.version7.resources
 D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.Migrations.version8.resources
 D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.Migrations.version9.resources
+D:\OPS訂單管理系統\OPS\OPS\obj\Debug\OPS.Migrations.version10.resources

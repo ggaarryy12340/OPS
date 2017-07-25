@@ -34,9 +34,12 @@ namespace OPS.Models.OPSContext
 
         public virtual ICollection<Order> Orders { get; set; }
 
+        public virtual ICollection<PickingProductCheck> PickingProductChecks { get; set; }
+
         public Picking()
         {
             Orders = new List<Order>();
+            PickingProductChecks = new List<PickingProductCheck>();
             PickingId = Guid.NewGuid();
             IsComplete = "N";
         }

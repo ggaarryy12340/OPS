@@ -35,5 +35,6 @@
         public virtual DbSet<Picking> Picking { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<PDCategory> PDCategory { get; set; }
+        public virtual DbSet<PickingProductCheck> PickingProductChecks { get; set; }
     }
 }
