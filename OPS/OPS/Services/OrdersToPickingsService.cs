@@ -44,5 +44,10 @@ namespace OPS.Services
             }
         }
 
+        public void Dispose()
+        {
+            Repository.Dispose();
+        }
+
     }
 }

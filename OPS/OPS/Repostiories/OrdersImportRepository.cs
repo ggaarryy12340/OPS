@@ -27,6 +27,13 @@ namespace OPS.Repostiories
         public bool SaveOrder(Order OD)
         {
             db.Order.Add(OD);
+
+            #region 新增訂單Log
+            OrderStatusLog log = new OrderStatusLog();
+            log.OrderId = OD.OrderId;
+            db.OrderStatusLog.Add(log);
+            #endregion
+
             return db.SaveChanges() > 0;
         }
 

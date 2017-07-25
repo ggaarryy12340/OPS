@@ -182,8 +182,8 @@ namespace OPS.Services
                     od.SourceOrderId = shopee.OrderNo;//來源訂單編號
                     od.OrderDateTime = nowDate;
                     od.OrderStatus = "1";
-                    od.DeliveryWay = shopee.SendType;//資料庫欄位可能要改nvarchar
-                    od.Distributor = "蝦皮";//資料庫欄位可能要改nvarchar
+                    od.DeliveryWay = shopee.SendType;
+                    od.Distributor = "蝦皮";
                     od.RecieveName = shopee.ConsigneeName;
                     od.RecievePhone = shopee.ConsigneeTel;
                     od.RecieveZipCode = string.Empty;
@@ -224,7 +224,7 @@ namespace OPS.Services
                 throw;
             }
 
-            return msg;
+            return "上傳成功!";
         }
 
         public void Dispose()

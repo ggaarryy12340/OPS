@@ -431,6 +431,7 @@
     <Content Include="Views\Orders\OrdersEdit.cshtml" />
     <Content Include="Views\Orders\_EditDetail.cshtml" />
     <Content Include="Views\OrdersToPickings\Index.cshtml" />
+    <Content Include="Views\Orders\OrdersLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

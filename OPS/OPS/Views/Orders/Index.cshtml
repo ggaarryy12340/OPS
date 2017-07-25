@@ -142,7 +142,8 @@
                 <td>@item.Payment</td>
                 <td>@item.OrderDetails.Sum(x => x.Quantity)</td>
                 <td>@item.OrderDateTime</td>
-                <td>@Html.ActionLink("明細", "OrdersDetail", "Orders", new { id = item.OrderId }, new { @class = "btn btn-info" })</td>
+                <td>@Html.ActionLink("明細", "OrdersDetail", "Orders", new { id = item.OrderId }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("歷程", "OrdersLog", "Orders", new { id = item.OrderId }, new { @class = "btn btn-info" })</td>
                 <td>@Html.ActionLink("修改", "OrdersEdit", "Orders", new { id = item.OrderId }, new { @class = "btn btn-warning" })</td>
                 <td>@Html.ActionLink("刪除", "OrdersDelete", "Orders", new { id = item.OrderId }, new { @class = "btn btn-danger" })</td>
             </tr>

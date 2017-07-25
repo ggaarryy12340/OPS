@@ -99,5 +99,10 @@ namespace OPS.Repostiories
 
             db.SaveChanges();
         }
+
+        public void Dispose()
+        {
+            db.Dispose();
+        }
     }
 }

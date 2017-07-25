@@ -163,5 +163,15 @@ namespace OPS.Repostiories
         {
             return db.Product.Find(PDNo);
         }
+
+        public OrderStatusLog GetSingleOrderLog(Guid id)
+        {
+            return db.OrderStatusLog.FirstOrDefault(x => x.OrderId == id);
+        }        
+
+        public void Dispose()
+        {
+            db.Dispose();
+        }
     }
 }

@@ -96,11 +96,26 @@ namespace OPS.Controllers
             return View(model);
         }
 
+        public ActionResult OrdersLog(Guid id)
+        {
+            var Log = Service.GetSingleOrderLog(id);
+            return View(Log);
+        }
+
         //輸入商品編號回傳商品資訊
         public ActionResult ReturnPDInfo(string PDNewNo)
         {
             var PDInfo = Service.ReturnPDInfo(PDNewNo);
             return Json(PDInfo, JsonRequestBehavior.AllowGet);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Service.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

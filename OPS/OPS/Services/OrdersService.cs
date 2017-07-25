@@ -51,5 +51,15 @@ namespace OPS.Services
         {
             return Repository.ReturnPDInfo(PDNo);
         }
+
+        public OrderStatusLog GetSingleOrderLog(Guid id)
+        {
+            return Repository.GetSingleOrderLog(id);
+        }
+
+        public void Dispose()
+        {
+            Repository.Dispose();
+        }
     }
 }

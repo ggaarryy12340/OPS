@@ -34,8 +34,16 @@ namespace OPS.Controllers
                 var Orders = Service.FindOrders(para);
                 Service.MakePicking(Orders, para.OrdersPerPicking, para.DeliveryWay);
             }
-            return View(para);
-            
+            return View(para);           
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Service.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
